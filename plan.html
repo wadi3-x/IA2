@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0%;
+      margin: 0%;
+    }
+
+    body {
+      background-color: #d4d5d6;
+      color: #333;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+  .parsley-errors-list {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    list-style: none;
+    padding: 0;
+  }
+  input.parsley-error, textarea.parsley-error, select.parsley-error {
+    border-color: #dc2626 !important;
+  }
+</style>
+
+ 
+<body class="bg-gray-100 min-h-screen">
+
+  <header class="bg-white border-b px-8 py-4 flex justify-between items-center">
+    <a href="index.html"><img class="w-20" src="img/Logo futuriste Planit AI en orbite.png" alt="logo planit ai"></a>
+    <ul class="flex items-center gap-5 list-none">
+      <li><a href="index.html" class="bg-gray-200 text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 hover:text-white transition">Dashboard</a></li>
+      <li><a href="plan.html" class="bg-indigo-600 text-white text-sm px-5 py-2.5 rounded-md">Nouveau projet</a></li>
+      <li><button id="ninja" class="bg-gray-200 text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 hover:text-white transition">Paramètres IA</button></li>
+    </ul>
+  </header>
+
+  <main class="max-w-2xl mx-auto py-10 px-4">
+    <form id="naruto" novalidate class="bg-white p-8 shadow border rounded-xl ">
+      <h1 class="font-bold text-3xl">Nouveau projet</h1>
+
+      <div>
+        <label class="text-sm">Nom du projet</label>
+        <input name="name" class="w-full border rounded p-2 mt-1">
+        <p class="err text-red-600 text-sm"></p>
+      </div>
+      <div>
+        <label class="text-sm">Description</label>
+        <input name="description" class="w-full border rounded p-2 mt-1">
+        <p class="err text-red-600 text-sm"></p>
+      </div>
+      <div>
+        <label class="text-sm">Brief complet</label>
+        <textarea name="brief" rows="5" class="w-full border rounded p-2 mt-1"></textarea>
+        <p class="err text-red-600 text-sm"></p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="text-sm">Durée (jours)</label>
+          <input name="duration" class="w-full border rounded p-2 mt-1">
+          <p class="err text-red-600 text-sm"></p>
+        </div>
+        <div>
+          <label class="text-sm">Nombre de développeurs</label>
+          <input name="devs" class="w-full border rounded p-2 mt-1">
+          <p class="err text-red-600 text-sm"></p>
+        </div>
+      </div>
+      <div>
+        <label class="text-sm">Technologies</label>
+        <input name="techs" class="w-full border rounded p-2 mt-1">
+        <p class="err text-red-600 text-sm"></p>
+      </div>
+      <div>
+        <label class="text-sm">Niveau de difficulté</label>
+        <select name="level" class="w-full border rounded p-2 mt-1 mb-4">
+          <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+        </select>
+      </div>
+
+      <button id="sasuke" type="submit" disabled
+        class="w-full bg-indigo-600 text-white rounded-lg p-2 hover:bg-gray-400 ">
+        Générer le plan de développement
+      </button>
+
+     
+   
+  <script src="parametres.js"></script>
+ 
+</body>
+</html>

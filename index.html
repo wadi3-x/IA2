@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLANIT AI - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-300 text-gray-800 font-sans">
+
+  <header class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
+    <a href="index.html">
+      <img class="w-20" src="img/Logo futuriste Planit AI en orbite.png" alt="logo planit ai">
+    </a>
+    <ul class="flex items-center gap-5 list-none">
+      <li><a href="index.html" class="bg-gray-200 text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 hover:text-white transition">Dashboard</a></li>
+      <li><a href="plan.html" class="bg-indigo-600 text-white text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 transition">Nouveau projet</a></li>
+      <li><button id="ninja" class="bg-gray-200 text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 hover:text-white transition">Paramètres IA</button></li>
+    </ul>
+  </header>
+
+  <main class="max-w-[900px] mx-auto px-4 mt-8">
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Vos projets</h1>
+      <a href="plan.html" class="bg-indigo-600 text-white text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 transition">+ Nouveau projet</a>
+    </div>
+    <div id="konoha" class="grid gap-4 mt-8 mb-10"></div>
+  </main>
+
+  <script src="parametres.js"></script>
+  
+</body>
+</html>
