@@ -1,102 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>PLANIT AI - Nouveau projet</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      padding: 0%;
-      margin: 0%;
-    }
-
-    body {
-      background-color: #d4d5d6;
-      color: #333;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-
-  .parsley-errors-list {
-    color: #dc2626;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-    list-style: none;
-    padding: 0;
-  }
-  input.parsley-error, textarea.parsley-error, select.parsley-error {
-    border-color: #dc2626 !important;
-  }
-</style>
-
- 
-<body class="bg-gray-100 min-h-screen">
-
-  <header class="bg-white border-b px-8 py-4 flex justify-between items-center">
-    <a href="index.html"><img class="w-20" src="img/Logo futuriste Planit AI en orbite.png" alt="logo planit ai"></a>
+    .parsley-errors-list { color: #dc2626; font-size: 0.875rem; margin-top: 0.25rem; list-style: none; padding: 0; }
+    input.parsley-error, textarea.parsley-error, select.parsley-error { border-color: #dc2626 !important; }
+  </style>
+</head>
+<body class="bg-gray-300 text-gray-800 font-sans min-h-screen">
+  <header class="bg-white border-b border-gray-200 px-8 py-4 flex justify-between items-center">
+    <a href="index.html"><img class="w-20" src="img/Logo futuriste Planit AI en orbite.png" alt="logo planit ai" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'PLANIT AI',className:'font-bold text-indigo-600'}))"></a>
     <ul class="flex items-center gap-5 list-none">
       <li><a href="index.html" class="bg-gray-200 text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 hover:text-white transition">Dashboard</a></li>
-      <li><a href="plan.html" class="bg-indigo-600 text-white text-sm px-5 py-2.5 rounded-md">Nouveau projet</a></li>
+      <li><a href="plan.html" class="bg-indigo-600 text-white text-sm px-5 py-2.5 rounded-md transition">Nouveau projet</a></li>
       <li><button id="ninja" class="bg-gray-200 text-sm px-5 py-2.5 rounded-md hover:bg-gray-500 hover:text-white transition">Paramètres IA</button></li>
     </ul>
   </header>
 
-  <main class="max-w-2xl mx-auto py-10 px-4">
-    <form id="naruto" novalidate class="bg-white p-8 shadow border rounded-xl ">
-      <h1 class="font-bold text-3xl">Nouveau projet</h1>
+  <main id="gta" class="max-w-2xl mx-auto py-10 px-4">
+    <form id="naruto" data-parsley-validate class="bg-white p-8 shadow border rounded-xl space-y-4">
+      <h1 class="font-bold text-3xl mb-2">Nouveau projet</h1>
 
       <div>
-        <label class="text-sm">Nom du projet</label>
-        <input name="name" class="w-full border rounded p-2 mt-1">
-        <p class="err text-red-600 text-sm"></p>
+        <label for="name" class="text-sm font-medium">Nom du projet</label>
+        <input id="name" name="name" type="text" required data-parsley-required-message="Ce champ est obligatoire" class="w-full border rounded p-2 mt-1">
       </div>
+
       <div>
-        <label class="text-sm">Description</label>
-        <input name="description" class="w-full border rounded p-2 mt-1">
-        <p class="err text-red-600 text-sm"></p>
+        <label for="description" class="text-sm font-medium">Description</label>
+        <input id="description" name="description" type="text" required data-parsley-required-message="Ce champ est obligatoire" class="w-full border rounded p-2 mt-1">
       </div>
+
       <div>
-        <label class="text-sm">Brief complet</label>
-        <textarea name="brief" rows="5" class="w-full border rounded p-2 mt-1"></textarea>
-        <p class="err text-red-600 text-sm"></p>
+        <label for="brief" class="text-sm font-medium">Brief complet</label>
+        <textarea id="brief" name="brief" rows="5" class="w-full border rounded p-2 mt-1"></textarea>
       </div>
+
       <div class="grid sm:grid-cols-2 gap-4">
         <div>
-          <label class="text-sm">Durée (jours)</label>
-          <input name="duration" class="w-full border rounded p-2 mt-1">
-          <p class="err text-red-600 text-sm"></p>
+          <label for="duration" class="text-sm font-medium">Durée (jours)</label>
+          <input id="duration" name="duration" type="number" min="1" class="w-full border rounded p-2 mt-1">
         </div>
         <div>
-          <label class="text-sm">Nombre de développeurs</label>
-          <input name="devs" class="w-full border rounded p-2 mt-1">
-          <p class="err text-red-600 text-sm"></p>
+          <label for="devs" class="text-sm font-medium">Nombre de développeurs</label>
+          <input id="devs" name="devs" type="number" min="1" class="w-full border rounded p-2 mt-1">
         </div>
       </div>
+
       <div>
-        <label class="text-sm">Technologies</label>
-        <input name="techs" class="w-full border rounded p-2 mt-1">
-        <p class="err text-red-600 text-sm"></p>
+        <label for="techs" class="text-sm font-medium">Technologies</label>
+        <input id="techs" name="techs" type="text" placeholder="ex: HTML, Tailwind, JavaScript" class="w-full border rounded p-2 mt-1">
       </div>
+
       <div>
-        <label class="text-sm">Niveau de difficulté</label>
-        <select name="level" class="w-full border rounded p-2 mt-1 mb-4">
-          <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+        <label for="level" class="text-sm font-medium">Niveau de difficulté</label>
+        <select id="level" name="level" class="w-full border rounded p-2 mt-1 mb-4 bg-white">
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
         </select>
       </div>
 
-      <button id="sasuke" type="submit" disabled
-        class="w-full bg-indigo-600 text-white rounded-lg p-2 hover:bg-gray-400 ">
+      <button id="sasuke" type="submit"
+        class="w-full bg-indigo-600 text-white rounded-lg p-2.5 hover:bg-indigo-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition">
         Générer le plan de développement
       </button>
+    </form>
+  </main>
 
-     
-   
+  <script src="demo.js"></script>
+  <script src="dashbord.js"></script>
   <script src="parametres.js"></script>
- 
+  <script type="module" src="api.js"></script>
 </body>
 </html>
